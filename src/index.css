@@ -2,11 +2,23 @@
 
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100vw !important;
 }
 
 :root {
+  --font-primary: "Roboto", sans-serif;
+  --font-secondary: "Mono", sans-serif;
+  --bg-color: #dde4eb;
+  --footer-color: #a5abb3;
+}
+
+[data-theme="dark"] {
   --font-primary: "Roboto", sans-serif;
   --font-secondary: "Mono", sans-serif;
   --bg-color: #272b30;
@@ -17,5 +29,21 @@ body {
   height: 100%;
   font-size: 1.6rem;
   line-height: 1.5;
-  font: var(--font-secondary);
+  font-family: var(--font-secondary);
+  height: 100%;
+  position: relative;
 }
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* #root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+} */

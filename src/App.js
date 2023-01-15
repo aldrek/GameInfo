@@ -1,10 +1,30 @@
-import "./App.css";
-import { Header } from "./components/Header";
+import { Layout } from "./components/layout/Layout";
+import { Route, Routes } from "react-router-dom";
+import { Popular } from "./pages/popular/Popular";
+import { Home } from "./pages/home/Home";
+import { Favorites } from "./pages/favorite/Favorites";
+import { NotFound } from "./pages/NotFound/NotFound";
+import { Details } from "./pages/details/Details";
+import useLocalStorage from "use-local-storage";
 
 function App() {
+  const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [theme, setTheme] = useLocalStorage(
+    "theme",
+    defaultDark ? "dark" : "light"
+  );
+
   return (
-    <div className="conatiner">
-      <Header></Header>
+    <div className="app" container data-theme={theme}>
+      <Layout setTheme={setTheme} theme={theme}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/popluar" element={<Popular />} />
+          <Route path="/favorite" element={<Favorites />} />
+          <Route path="/games/:id" element={<Details />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Layout>
     </div>
   );
 }
