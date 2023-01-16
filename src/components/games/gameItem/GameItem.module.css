@@ -51,6 +51,10 @@
 }
 
 .like {
+  color: white;
+}
+
+.liked {
   color: red;
 }
 
