@@ -1,0 +1,26 @@
+.game_list {
+  width: 100%;
+  margin: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+@media screen and (min-width: 600px) {
+  .game_list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .game_list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .game_list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

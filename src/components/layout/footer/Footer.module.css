@@ -3,5 +3,16 @@
   height: 50px;
   position: absolute;
   bottom: 0;
-  background-color: aqua;
+  background-color: var(--bg-color);
+  display: flex;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+  color: var(--secondary-color);
+}
+
+@media only screen and (max-width: 376px) {
+  .footer {
+    display: none;
+  }
 }

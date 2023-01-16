@@ -1,8 +1,7 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
 import { GiGamepad } from "react-icons/gi";
-import useLocalStorage from "use-local-storage";
 import { DarkModeToggle } from "@anatoliygatt/dark-mode-toggle";
 
 export const Header = ({ setTheme, theme }) => {
@@ -31,17 +30,6 @@ export const Header = ({ setTheme, theme }) => {
             >
               Home
             </NavLink>{" "}
-          </li>
-
-          <li>
-            {" "}
-            <NavLink
-              to="/popluar"
-              className={styles.link}
-              style={({ isActive }) => (isActive ? activeStyle : undefined)}
-            >
-              Popular
-            </NavLink>
           </li>
 
           <li>

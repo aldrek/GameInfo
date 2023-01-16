@@ -1,0 +1,68 @@
+.game_item {
+  height: auto;
+  background-color: var(--bg-color);
+  border-radius: 16px;
+  color: var(--secondary-color);
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  display: relative;
+}
+
+.game_item img {
+  width: 100%;
+  height: 55%;
+  border-radius: 16px 16px 0 0;
+}
+
+.container {
+  margin: 1rem;
+}
+
+.container p {
+  display: -webkit-box;
+  color: var(--secondary-color);
+  --max-lines: 2;
+  font-size: 1rem;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--max-lines);
+  margin-top: 8px;
+}
+
+.container h3 {
+  display: -webkit-box;
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  --max-lines: 1;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--max-lines);
+}
+
+.info {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.platform_genre {
+  display: flex;
+}
+
+.like {
+  color: red;
+}
+
+.platform {
+  color: var(--bg-color);
+  background-color: var(--bg-color_secondary);
+  font-size: 14px;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.platform,
+.platform_icon {
+  margin-right: 5px;
+}

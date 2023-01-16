@@ -8,10 +8,54 @@
   margin-top: 36px;
 }
 
+.container form {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
 .container h1 {
   color: var(--bg-color);
 }
 
 .container p {
   color: var(--bg-color);
+}
+
+.search_icon {
+  fill: var(--secondary-color);
+}
+
+.form_search {
+  min-width: 350px;
+  width: 350px;
+  background-color: var(--bg-color);
+  display: flex;
+  border-radius: 32px;
+  align-items: center;
+  padding: 16px;
+  margin-top: 2rem;
+}
+
+.form_search input {
+  background-color: transparent;
+  color: var(--secondary-color);
+  padding: 4px;
+}
+
+.form_search input,
+.form_search input:focus {
+  border: none;
+  outline-style: none;
+  width: 100%;
+}
+
+.clear {
+  fill: var(--secondary-color);
+}
+
+.none {
+  display: none;
+}
+
+.show {
+  display: flex;
 }

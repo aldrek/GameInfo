@@ -1,6 +1,5 @@
 import { Layout } from "./components/layout/Layout";
 import { Route, Routes } from "react-router-dom";
-import { Popular } from "./pages/popular/Popular";
 import { Home } from "./pages/home/Home";
 import { Favorites } from "./pages/favorite/Favorites";
 import { NotFound } from "./pages/NotFound/NotFound";
@@ -19,7 +18,6 @@ function App() {
       <Layout setTheme={setTheme} theme={theme}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/popluar" element={<Popular />} />
           <Route path="/favorite" element={<Favorites />} />
           <Route path="/games/:id" element={<Details />} />
           <Route path="*" element={<NotFound />} />

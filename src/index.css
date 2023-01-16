@@ -6,15 +6,13 @@
   padding: 0;
 }
 
-html,
-body {
-  width: 100vw !important;
-}
-
 :root {
   --font-primary: "Roboto", sans-serif;
   --font-secondary: "Mono", sans-serif;
   --bg-color: #dde4eb;
+  --bg-color_secondary: #7a8288;
+  --primary-color: #ffffff;
+  --secondary-color: #000000;
   --footer-color: #a5abb3;
 }
 
@@ -22,6 +20,9 @@ body {
   --font-primary: "Roboto", sans-serif;
   --font-secondary: "Mono", sans-serif;
   --bg-color: #272b30;
+  --bg-color_secondary: #7a8288;
+  --primary-color: #000000;
+  --secondary-color: #ffffff;
   --footer-color: #272b30;
 }
 
