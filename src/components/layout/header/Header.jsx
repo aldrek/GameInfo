@@ -9,7 +9,7 @@ export const Header = ({ setTheme, theme }) => {
     color: "#fff",
   };
 
-  const OnLogoClick = () => {
+  const OnToggle = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
 
@@ -57,7 +57,7 @@ export const Header = ({ setTheme, theme }) => {
           inactiveThumbColor="#1e293b"
           activeThumbColor="#e2e8f0"
           onChange={(mode) => {
-            OnLogoClick();
+            OnToggle();
           }}
         />
       </div>
