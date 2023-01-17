@@ -9,6 +9,7 @@ export const UseFetch = (url) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
         const response = await axios({
           url: url,
           params: { platform: "pc" },
