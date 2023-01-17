@@ -1,13 +1,18 @@
+.game_list_horizontal {
+  display: flex;
+  flex-direction: column;
+}
+
 .game_list {
   width: 100%;
   margin: 2rem;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1rem;
   align-items: start;
 }
 
-@media screen and (min-width: 600px) {
+/* @media screen and (min-width: 600px) {
   .game_list {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -23,4 +28,4 @@
   .game_list {
     grid-template-columns: repeat(4, 1fr);
   }
-}
+} */
