@@ -8,6 +8,11 @@
   display: relative;
 }
 
+.game_item:hover {
+  transform: scale(1.06);
+  transition: 0.1s ease-in-out;
+}
+
 .game_item img {
   width: 100%;
   height: 55%;
@@ -15,7 +20,7 @@
 }
 
 .container {
-  margin: 1rem;
+  margin: 1.1rem;
 }
 
 .container p {
