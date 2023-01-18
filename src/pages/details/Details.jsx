@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { GameDetails } from "../../components/games/gameDetails/GameDetails";
+import { GameDetailsList } from "../../components/games/list/GameList";
 import { UseFetch } from "../../hooks/UseFetch";
 
 export const Details = () => {
@@ -19,5 +21,5 @@ export const Details = () => {
     }
   }, [data]);
 
-  return <div>Details</div>;
+  return <GameDetails game={gameResult}></GameDetails>;
 };
