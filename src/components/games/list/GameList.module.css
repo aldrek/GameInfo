@@ -7,6 +7,8 @@
   margin: 2rem;
   margin-bottom: 5rem;
   position: relative;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .game_list_horizontal {

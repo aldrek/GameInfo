@@ -3,7 +3,6 @@ import { ColorRing } from "react-loader-spinner";
 import styles from "./Loading.module.css";
 
 export const Loading = () => {
-  console.log("show item");
   return (
     <ColorRing
       visible={true}

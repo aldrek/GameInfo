@@ -4,7 +4,12 @@ import { GameItem } from "../gameItem/GameItem";
 import { GameItemHorizontal } from "../gameItemHorizontal/GameItemHorizontal";
 import style from "./GameList.module.css";
 
-export const GameDetailsList = ({ gameResult: gameList, gameListSystem }) => {
+export const GameDetailsList = ({
+  gameResult: gameList,
+  gameListSystem = "grid",
+  isShowPagination = true,
+  category,
+}) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [gamesPageSize] = useState(20);
 
@@ -16,11 +21,17 @@ export const GameDetailsList = ({ gameResult: gameList, gameListSystem }) => {
   );
 
   let currentGameList = [];
-  if (gameList !== null)
-    currentGameList = gameList.slice(
-      currentItemStartPosition,
-      currentItemEndPosition
-    );
+
+  if (gameList !== null) {
+    if (!category)
+      currentGameList = gameList.slice(
+        currentItemStartPosition,
+        currentItemEndPosition
+      );
+    else {
+      currentGameList = gameList.filter((game) => game.genre === category);
+    }
+  }
 
   const handlePageChange = ({ selected }) => {
     setCurrentPage(selected + 1);
@@ -43,7 +54,7 @@ export const GameDetailsList = ({ gameResult: gameList, gameListSystem }) => {
           })}
       </div>
 
-      {gameList !== null && (
+      {gameList !== null && isShowPagination && (
         <ReactPaginate
           previousLabel="Previous"
           nextLabel="Next"
