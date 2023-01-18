@@ -9,7 +9,7 @@ export const Category = () => {
   const [gameResult, setGameResult] = useState(null);
   const [category, setCategory] = useState("MMO");
 
-  const { data, loading, error } = UseFetch(
+  const { data, loading } = UseFetch(
     "https://free-to-play-games-database.p.rapidapi.com/api/games"
   );
 
@@ -21,12 +21,13 @@ export const Category = () => {
 
   return (
     <div className={styles.container}>
-      {loading && <Loading />}
       <GameFilter
         loading={loading}
         category={category}
         setCategory={setCategory}
       />
+
+      {loading && <Loading />}
 
       <GameDetailsList
         gameResult={gameResult}

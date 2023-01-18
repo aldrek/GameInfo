@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { gameCategoryList } from "../../../util/GameUtil";
 import styles from "./GameFilter.module.css";
 

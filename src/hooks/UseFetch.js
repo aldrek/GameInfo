@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export const UseFetch = (url) => {
+export const UseFetch = (url, id = "") => {
   const [error, setError] = useState("");
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -12,7 +12,7 @@ export const UseFetch = (url) => {
         setLoading(true);
         const response = await axios({
           url: url,
-          params: { platform: "pc" },
+          params: { id: id },
           headers: {
             "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
             "X-RapidAPI-Host": "free-to-play-games-database.p.rapidapi.com",
@@ -31,7 +31,7 @@ export const UseFetch = (url) => {
     };
 
     fetchData();
-  }, [url]);
+  }, [url, id]);
 
   return { data, loading, error };
 };

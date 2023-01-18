@@ -3,10 +3,21 @@ import styles from "./GameItem.module.css";
 import { AiFillWindows } from "react-icons/ai";
 import { GoBrowser } from "react-icons/go";
 import { AiFillLike } from "react-icons/ai";
+import { Link, useNavigate } from "react-router-dom";
 
 export const GameItem = ({ game }) => {
+  const navigate = useNavigate();
+
+  const routeToGame = (id) => {
+    navigate(`/games/${id}`);
+  };
   return (
-    <div className={styles.game_item}>
+    <div
+      className={styles.game_item}
+      onClick={() => {
+        routeToGame(game.id);
+      }}
+    >
       <img className={styles.thumbnail} src={game.thumbnail} alt="test" />
 
       <div className={styles.container}>
