@@ -53,6 +53,7 @@
 
 .platform_genre {
   display: flex;
+  align-items: center;
 }
 
 .like {
