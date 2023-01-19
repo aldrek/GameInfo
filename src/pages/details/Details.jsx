@@ -21,5 +21,5 @@ export const Details = () => {
     }
   }, [data]);
 
-  return <GameDetails game={gameResult}></GameDetails>;
+  return <GameDetails game={gameResult} />;
 };
