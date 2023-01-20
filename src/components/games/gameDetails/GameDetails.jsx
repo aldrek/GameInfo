@@ -1,4 +1,5 @@
 import React from "react";
+import { openInNewTab } from "../../../util/WindowUtil";
 import style from "./GameDetails.module.css";
 
 export const GameDetails = ({ game }) => {
@@ -8,7 +9,14 @@ export const GameDetails = ({ game }) => {
         <div className={style.header}>
           <div className={style.left_section}>
             <img src={game.thumbnail} alt="test" />
-            <button className={style.play}>Play</button>
+            <button
+              className={style.play}
+              onClick={() => {
+                openInNewTab(window, game.game_url);
+              }}
+            >
+              Play
+            </button>
           </div>
           <div className={style.right_side}>
             <span className={style.txt_headr}>{game.title}</span>
