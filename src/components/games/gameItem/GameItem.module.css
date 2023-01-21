@@ -56,12 +56,12 @@
   align-items: center;
 }
 
-.like {
-  color: white;
+.active {
+  color: rgb(69, 52, 218);
 }
 
-.liked {
-  color: red;
+.not_active {
+  color: white;
 }
 
 .platform {

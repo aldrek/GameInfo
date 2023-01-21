@@ -47,6 +47,14 @@
   size: 10px;
 }
 
+.active {
+  color: rgb(69, 52, 218);
+}
+
+.not_active {
+  color: white;
+}
+
 .container {
   width: 100%;
   margin-left: 1rem;

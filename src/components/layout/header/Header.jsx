@@ -46,7 +46,7 @@ export const Header = ({ setTheme, theme }) => {
           <li>
             {" "}
             <NavLink
-              to="/Favorite"
+              to="/favorite"
               className={styles.link}
               style={({ isActive }) => (isActive ? activeStyle : undefined)}
             >

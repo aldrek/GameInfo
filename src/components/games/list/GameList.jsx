@@ -1,5 +1,6 @@
 import React, { useState, lazy, Suspense } from "react";
 import ReactPaginate from "react-paginate";
+import useLocalStorage from "use-local-storage";
 import { GameItem } from "../gameItem/GameItem";
 // import { GameItemHorizontal } from "../gameItemHorizontal/GameItemHorizontal";
 import style from "./GameList.module.css";
@@ -12,7 +13,13 @@ export const GameDetailsList = ({
   gameListSystem = listType.grid,
   isShowPagination = true,
   category,
+  isFavorite = false,
 }) => {
+  const [data, setData] = useLocalStorage("likes", []);
+
+  if (!data) setData([]);
+
+  const [refresh, setRefresh] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [gamesPageSize] = useState(20);
 
@@ -52,11 +59,27 @@ export const GameDetailsList = ({
         {currentGameList &&
           currentGameList.map((game) => {
             if (gameListSystem === listType.grid)
-              return <GameItem key={game.id} game={game} />;
+              return (
+                <GameItem
+                  key={game.id}
+                  game={game}
+                  data={data}
+                  setData={setData}
+                  setRefresh={setRefresh}
+                  isFavorite={isFavorite}
+                />
+              );
             else
               return (
                 <Suspense fallback={<div />}>
-                  <GameItemHorizontal key={game.id} game={game} />
+                  <GameItemHorizontal
+                    key={game.id}
+                    game={game}
+                    data={data}
+                    setData={setData}
+                    setRefresh={setRefresh}
+                    isFavorite={isFavorite}
+                  />
                 </Suspense>
               );
           })}
