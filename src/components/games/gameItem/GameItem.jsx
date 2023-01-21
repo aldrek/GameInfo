@@ -3,10 +3,15 @@ import styles from "./GameItem.module.css";
 import { AiFillWindows } from "react-icons/ai";
 import { GoBrowser } from "react-icons/go";
 import { AiFillLike } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const GameItem = ({ game }) => {
   const navigate = useNavigate();
+
+  const onLikeClicked = (e) => {
+    console.log("Clicked:" + game.id);
+    e.stopPropagation();
+  };
 
   const routeToGame = (id) => {
     navigate(`/games/${id}`);
@@ -43,7 +48,7 @@ export const GameItem = ({ game }) => {
           </div>
 
           {/* Is liked */}
-          <div className={styles.like}>
+          <div className={styles.like} onClick={(e) => onLikeClicked(e)}>
             <AiFillLike />
           </div>
         </div>
