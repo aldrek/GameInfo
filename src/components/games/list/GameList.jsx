@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import ReactPaginate from "react-paginate";
 import { GameItem } from "../gameItem/GameItem";
-import { GameItemHorizontal } from "../gameItemHorizontal/GameItemHorizontal";
+// import { GameItemHorizontal } from "../gameItemHorizontal/GameItemHorizontal";
 import style from "./GameList.module.css";
-
+import { listType } from "./ListType";
+const GameItemHorizontal = lazy(() =>
+  import("../gameItemHorizontal/GameItemHorizontal")
+);
 export const GameDetailsList = ({
   gameResult: gameList,
-  gameListSystem = "grid",
+  gameListSystem = listType.grid,
   isShowPagination = true,
   category,
 }) => {
@@ -17,7 +20,7 @@ export const GameDetailsList = ({
   const currentItemStartPosition = currentItemEndPosition - gamesPageSize;
 
   const pageCount = Math.ceil(
-    (gameList === null ? 1 : gameList.length) / gamesPageSize
+    (!gameList ? 1 : gameList.length) / gamesPageSize
   );
 
   let currentGameList = [];
@@ -41,16 +44,21 @@ export const GameDetailsList = ({
     <div className={style.container}>
       <div
         className={` ${
-          gameListSystem === "grid"
+          gameListSystem === listType.grid
             ? style.game_list
             : style.game_list_horizontal
         }`}
       >
         {currentGameList &&
           currentGameList.map((game) => {
-            if (gameListSystem === "grid")
+            if (gameListSystem === listType.grid)
               return <GameItem key={game.id} game={game} />;
-            else return <GameItemHorizontal key={game.id} game={game} />;
+            else
+              return (
+                <Suspense fallback={<div />}>
+                  <GameItemHorizontal key={game.id} game={game} />
+                </Suspense>
+              );
           })}
       </div>
 

@@ -3,7 +3,7 @@ import { AiFillLike, AiFillWindows } from "react-icons/ai";
 import { GoBrowser } from "react-icons/go";
 import { useNavigate } from "react-router-dom";
 import styles from "./GameItemHorizontal.module.css";
-export const GameItemHorizontal = ({ game }) => {
+const GameItemHorizontal = ({ game }) => {
   const navigate = useNavigate();
   const routeToGame = (id) => {
     navigate(`/games/${id}`);
@@ -44,3 +44,5 @@ export const GameItemHorizontal = ({ game }) => {
     </div>
   );
 };
+
+export default GameItemHorizontal;
