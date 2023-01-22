@@ -1,0 +1,11 @@
+.container {
+  width: 100%;
+  margin-left: auto;
+}
+.container span {
+  margin-right: 8px;
+}
+
+.container select {
+  padding: 4px;
+}

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import styles from "./GameItem.module.css";
-import { AiFillWindows } from "react-icons/ai";
+import { AiFillLike, AiFillWindows } from "react-icons/ai";
 import { GoBrowser } from "react-icons/go";
-import { AiFillLike } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-
 import { isItemLiked, likeClicked } from "../../../util/GameUtil";
-
-export const GameItem = ({ game, data, setData, setRefresh }) => {
+import styles from "./GameItemHorizontal.module.css";
+const GameItemHorizontal = ({ game, data, setData, setRefresh }) => {
   const navigate = useNavigate();
+  const routeToGame = (id) => {
+    navigate(`/games/${id}`);
+  };
 
   const onLikeClicked = async (e) => {
     likeClicked(e, game, data, setData);
@@ -17,16 +17,8 @@ export const GameItem = ({ game, data, setData, setRefresh }) => {
 
   const isLiked = isItemLiked(data, game.id);
 
-  const routeToGame = (id) => {
-    navigate(`/games/${id}`);
-  };
   return (
-    <div
-      className={styles.game_item}
-      onClick={() => {
-        routeToGame(game.id);
-      }}
-    >
+    <div className={styles.game_item} onClick={() => routeToGame(game.id)}>
       <img className={styles.thumbnail} src={game.thumbnail} alt="test" />
 
       <div className={styles.container}>
@@ -50,16 +42,18 @@ export const GameItem = ({ game, data, setData, setRefresh }) => {
               <GoBrowser className={styles.platform_icon} />
             )}
           </div>
-
-          {/* Is liked */}
-          <div className={styles.like} onClick={(e) => onLikeClicked(e)}>
-            <AiFillLike
-              fontSize="1.5em"
-              className={isLiked ? styles.active : styles.not_active}
-            />
-          </div>
         </div>
+      </div>
+
+      {/* Is liked */}
+      <div className={styles.like} onClick={(e) => onLikeClicked(e)}>
+        <AiFillLike
+          fontSize="1.5em"
+          className={isLiked ? styles.active : styles.not_active}
+        />
       </div>
     </div>
   );
 };
+
+export default GameItemHorizontal;

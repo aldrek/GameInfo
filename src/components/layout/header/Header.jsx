@@ -9,7 +9,7 @@ export const Header = ({ setTheme, theme }) => {
     color: "#fff",
   };
 
-  const OnLogoClick = () => {
+  const OnToggle = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
 
@@ -35,7 +35,18 @@ export const Header = ({ setTheme, theme }) => {
           <li>
             {" "}
             <NavLink
-              to="/Favorite"
+              to="/category"
+              className={styles.link}
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            >
+              Category
+            </NavLink>{" "}
+          </li>
+
+          <li>
+            {" "}
+            <NavLink
+              to="/favorite"
               className={styles.link}
               style={({ isActive }) => (isActive ? activeStyle : undefined)}
             >
@@ -57,7 +68,7 @@ export const Header = ({ setTheme, theme }) => {
           inactiveThumbColor="#1e293b"
           activeThumbColor="#e2e8f0"
           onChange={(mode) => {
-            OnLogoClick();
+            OnToggle();
           }}
         />
       </div>

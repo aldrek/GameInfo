@@ -5,6 +5,7 @@ import { Favorites } from "./pages/favorite/Favorites";
 import { NotFound } from "./pages/NotFound/NotFound";
 import { Details } from "./pages/details/Details";
 import useLocalStorage from "use-local-storage";
+import { Category } from "./pages/category/Category";
 
 function App() {
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/favorite" element={<Favorites />} />
+          <Route path="/category" element={<Category />} />
           <Route path="/games/:id" element={<Details />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
