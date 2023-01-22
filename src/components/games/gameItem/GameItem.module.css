@@ -57,11 +57,11 @@
 }
 
 .active {
-  color: rgb(69, 52, 218);
+  fill: rgb(238, 43, 25);
 }
 
 .not_active {
-  color: white;
+  fill: white !important;
 }
 
 .platform {
