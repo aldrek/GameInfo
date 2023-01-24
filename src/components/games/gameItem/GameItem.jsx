@@ -6,12 +6,11 @@ import { useNavigate } from "react-router-dom";
 
 import { isItemLiked, likeClicked } from "../../../util/GameUtil";
 
-export const GameItem = ({ game, data, setData, setRefresh }) => {
+export const GameItem = ({ game, data, setData }) => {
   const navigate = useNavigate();
 
   const onLikeClicked = async (e) => {
     likeClicked(e, game, data, setData);
-    setRefresh("");
   };
 
   const isLiked = isItemLiked(data, game.id);

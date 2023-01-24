@@ -2,9 +2,9 @@ import React, { useState, lazy, Suspense } from "react";
 import ReactPaginate from "react-paginate";
 import useLocalStorage from "use-local-storage";
 import { GameItem } from "../gameItem/GameItem";
-// import { GameItemHorizontal } from "../gameItemHorizontal/GameItemHorizontal";
 import style from "./GameList.module.css";
-import { listType } from "./ListType";
+import { listType } from "./Types";
+import { tabs } from "./Types";
 const GameItemHorizontal = lazy(() =>
   import("../gameItemHorizontal/GameItemHorizontal")
 );
@@ -13,13 +13,10 @@ export const GameDetailsList = ({
   gameListSystem = listType.grid,
   isShowPagination = true,
   category,
-  isFavorite = false,
+  tabName = tabs.home,
 }) => {
   const [data, setData] = useLocalStorage("likes", []);
 
-  if (!data) setData([]);
-
-  const [refresh, setRefresh] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [gamesPageSize] = useState(20);
 
@@ -32,7 +29,9 @@ export const GameDetailsList = ({
 
   let currentGameList = [];
 
-  if (gameList !== null) {
+  if (tabName === tabs.favorite) {
+    currentGameList = data;
+  } else if (gameList !== null) {
     if (!category)
       currentGameList = gameList.slice(
         currentItemStartPosition,
@@ -65,8 +64,6 @@ export const GameDetailsList = ({
                   game={game}
                   data={data}
                   setData={setData}
-                  setRefresh={setRefresh}
-                  isFavorite={isFavorite}
                 />
               );
             else
@@ -77,8 +74,6 @@ export const GameDetailsList = ({
                     game={game}
                     data={data}
                     setData={setData}
-                    setRefresh={setRefresh}
-                    isFavorite={isFavorite}
                   />
                 </Suspense>
               );
