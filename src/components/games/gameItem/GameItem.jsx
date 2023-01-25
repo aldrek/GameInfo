@@ -1,18 +1,16 @@
-import React, { useState } from "react";
 import styles from "./GameItem.module.css";
 import { AiFillWindows } from "react-icons/ai";
 import { GoBrowser } from "react-icons/go";
-import { AiFillLike } from "react-icons/ai";
+import { AiFillHeart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 
 import { isItemLiked, likeClicked } from "../../../util/GameUtil";
 
-export const GameItem = ({ game, data, setData, setRefresh }) => {
+export const GameItem = ({ game, data, setData }) => {
   const navigate = useNavigate();
 
   const onLikeClicked = async (e) => {
     likeClicked(e, game, data, setData);
-    setRefresh("");
   };
 
   const isLiked = isItemLiked(data, game.id);
@@ -53,7 +51,7 @@ export const GameItem = ({ game, data, setData, setRefresh }) => {
 
           {/* Is liked */}
           <div className={styles.like} onClick={(e) => onLikeClicked(e)}>
-            <AiFillLike
+            <AiFillHeart
               fontSize="1.5em"
               className={isLiked ? styles.active : styles.not_active}
             />

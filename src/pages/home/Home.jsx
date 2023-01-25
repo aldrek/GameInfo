@@ -8,13 +8,14 @@ import { GameDetailsList } from "../../components/games/list/GameList";
 import { RxRows } from "react-icons/rx";
 import { TfiLayoutColumn3 } from "react-icons/tfi";
 import { Loading } from "./Loading";
+import useRenderCount from "../../hooks/UseRender";
 
 export const Home = () => {
   const [gameResult, setGameResult] = useState(null);
   const [searchValue, setSearchValue] = useState("");
   const [gameListSystem, setGameListSystem] = useState("grid");
 
-  const { data, loading, error } = UseFetch(
+  const { data, loading } = UseFetch(
     "https://free-to-play-games-database.p.rapidapi.com/api/games"
   );
 
@@ -27,6 +28,10 @@ export const Home = () => {
       );
     }
   }, [searchValue, data]);
+
+  // Check rendering count
+  const renderCount = useRenderCount();
+  console.log("count:", renderCount);
 
   return (
     <div className={styles.container}>
