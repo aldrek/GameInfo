@@ -8,6 +8,7 @@ import { tabs } from "./Types";
 const GameItemHorizontal = lazy(() =>
   import("../gameItemHorizontal/GameItemHorizontal")
 );
+
 export const GameDetailsList = ({
   gameResult: gameList,
   gameListSystem = listType.grid,
@@ -15,7 +16,7 @@ export const GameDetailsList = ({
   category,
   tabName = tabs.home,
 }) => {
-  const [data, setData] = useLocalStorage("likes", []);
+  const [favoriteList, setFavoriteList] = useLocalStorage("likes", []);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [gamesPageSize] = useState(20);
@@ -30,7 +31,7 @@ export const GameDetailsList = ({
   let currentGameList = [];
 
   if (tabName === tabs.favorite) {
-    currentGameList = data;
+    currentGameList = favoriteList;
   } else if (gameList !== null) {
     if (!category)
       currentGameList = gameList.slice(
@@ -62,8 +63,8 @@ export const GameDetailsList = ({
                 <GameItem
                   key={game.id}
                   game={game}
-                  data={data}
-                  setData={setData}
+                  data={favoriteList}
+                  setData={setFavoriteList}
                 />
               );
             else
@@ -72,8 +73,8 @@ export const GameDetailsList = ({
                   <GameItemHorizontal
                     key={game.id}
                     game={game}
-                    data={data}
-                    setData={setData}
+                    data={favoriteList}
+                    setData={setFavoriteList}
                   />
                 </Suspense>
               );
