@@ -6,7 +6,7 @@
 > This project is a react.js web app that displays free games from Free-to-Play games database api. It fetches data from the [Free-to-Play Games](https://rapidapi.com/digiwalls/api/free-to-play-games-database) api and list it in a elegant way.
 
 <div align="center">
-<a href="aldrekgameinfo.netlify.app/">Demo</a>
+<a href="https://aldrekgameinfo.netlify.app/">Demo</a>
 </div>
 
 <br>
