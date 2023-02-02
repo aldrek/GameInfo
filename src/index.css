@@ -26,8 +26,13 @@
   --footer-color: #272b30;
 }
 
+html,
 body {
-  height: 100%;
+  overflow-x: hidden;
+  width: 100% !important;
+}
+
+body {
   line-height: 1.5;
   font-family: var(--font-secondary) !important;
   height: 100%;

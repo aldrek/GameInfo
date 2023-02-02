@@ -6,7 +6,7 @@ import { MdTrendingUp } from "react-icons/md";
 
 export const BottomNavigation = () => {
   return (
-    <nav className={styles.navigation}>
+    <nav className={styles.bottom_navigation}>
       <div className={styles.tab}>
         <MdGamepad />
         <span>Home</span>

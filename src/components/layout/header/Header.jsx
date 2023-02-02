@@ -21,7 +21,7 @@ export const Header = ({ setTheme, theme }) => {
           <GiGamepad className={styles.logo} />
         </NavLink>
 
-        <nav className="navigation">
+        <nav className={styles.navigation}>
           <li>
             <NavLink
               to="/"

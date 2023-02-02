@@ -1,4 +1,4 @@
-.navigation {
+.bottom_navigation {
   display: none;
   justify-content: space-between;
 }
@@ -8,8 +8,12 @@
   flex-direction: column;
 }
 
-@media only screen and (max-width: 376px) {
-  .navigation {
+@media screen and (max-width: 376px) {
+  .bottom_navigation {
+    width: 100%;
     display: flex;
+    background-color: red;
+    position: fixed !important;
+    bottom: 0;
   }
 }
