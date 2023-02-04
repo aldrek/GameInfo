@@ -39,7 +39,7 @@ nav {
   height: 50px;
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 576px) {
   .navigation {
     display: none !important;
     background-color: red;
