@@ -7,8 +7,8 @@ import { UseFetch } from "../../hooks/UseFetch";
 import { GameDetailsList } from "../../components/games/list/GameList";
 import { RxRows } from "react-icons/rx";
 import { TfiLayoutColumn3 } from "react-icons/tfi";
-import { Loading } from "./Loading";
 import useRenderCount from "../../hooks/UseRender";
+import { Skeleton } from "../../components/skeleton/Skeleton";
 
 export const Home = () => {
   const [gameResult, setGameResult] = useState(null);
@@ -89,7 +89,12 @@ export const Home = () => {
         </div>{" "}
       </div>
 
-      {loading && <Loading />}
+      {/* {loading && <Loading />} */}
+      {loading && (
+        <div className={styles.skeleton}>
+          <Skeleton type="gameList" />
+        </div>
+      )}
 
       <GameDetailsList
         gameResult={gameResult}

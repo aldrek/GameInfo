@@ -1,0 +1,44 @@
+.gameSk {
+  margin-right: 12px;
+  margin-bottom: 30px;
+  height: 350px;
+  animation: skeleton 1s ease infinite alternate;
+  background-color: var(--bg-color);
+  border-radius: 16px;
+  color: var(--secondary-color);
+}
+
+@keyframes skeleton {
+  to {
+    opacity: 0.5;
+  }
+}
+
+.gameSkImg {
+  background-color: #313131;
+  width: 100%;
+  height: 55%;
+  border-radius: 16px 16px 0 0;
+}
+
+.gameSkIo {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.gameSkText {
+  background-color: #313131;
+  width: 90%;
+  height: 20px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+}
+
+.gameSkText.sm {
+  width: 30%;
+}
+
+.hg {
+  height: 60px;
+}

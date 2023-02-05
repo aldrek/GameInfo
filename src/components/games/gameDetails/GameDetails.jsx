@@ -50,23 +50,23 @@ export const GameDetails = ({ game }) => {
             <div>
               <ul className={style.additional_info_list}>
                 <span>
-                  <span className={style.txt_sub_headr}>Release date</span>
+                  <span className={style.txt_sub_headr}>OS</span>
                   <p> {game.minimum_system_requirements.os}</p>
                 </span>
                 <span>
-                  <span className={style.txt_sub_headr}>Release date</span>
+                  <span className={style.txt_sub_headr}>Processor</span>
                   <p> {game.minimum_system_requirements.processor}</p>
                 </span>
                 <span>
-                  <span className={style.txt_sub_headr}>Release date</span>
+                  <span className={style.txt_sub_headr}>Memory</span>
                   <p> {game.minimum_system_requirements.memory}</p>
                 </span>
                 <span>
-                  <span className={style.txt_sub_headr}>Release date</span>
+                  <span className={style.txt_sub_headr}>Graphics</span>
                   <p> {game.minimum_system_requirements.graphics}</p>
                 </span>
                 <span>
-                  <span className={style.txt_sub_headr}>Release date</span>
+                  <span className={style.txt_sub_headr}>Storage</span>
                   <p> {game.minimum_system_requirements.storage}</p>
                 </span>
               </ul>

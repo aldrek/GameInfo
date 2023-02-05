@@ -23,8 +23,10 @@ export const UseFetch = (url, id = "") => {
           throw new Error("Error call");
         }
 
-        setLoading(false);
-        setData(response.data);
+        setTimeout(() => {
+          setLoading(false);
+          setData(response.data);
+        }, 1000);
       } catch (error) {
         setError(error.message);
       }
