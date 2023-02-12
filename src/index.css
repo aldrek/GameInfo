@@ -14,6 +14,7 @@
   --primary-color: #ffffff;
   --secondary-color: #000000;
   --footer-color: #a5abb3;
+  font-size: 16px;
 }
 
 [data-theme="dark"] {
@@ -26,10 +27,30 @@
   --footer-color: #272b30;
 }
 
+@media screen and (min-width: 1024) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+/* Tablets */
+@media screen and (min-width: 786) {
+  :root {
+    font-size: 15px;
+  }
+}
+
+/* mobile */
+@media screen and (min-width: 640) {
+  :root {
+    font-size: 9px;
+  }
+}
 html,
 body {
   overflow-x: hidden;
   width: 100% !important;
+  scroll-behavior: smooth;
 }
 
 body {
