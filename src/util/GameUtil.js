@@ -11,6 +11,18 @@ export const gameCategoryList = [
   "Fighting",
 ];
 
+export const gameSystemRequirement_info = [
+  "OS",
+  "Processor",
+  "Memory",
+  "Graphics",
+  "Storage",
+];
+
+export const mapArrayToMinRequirment = (arr) => {
+  return arr;
+};
+
 export async function filterAndMap(arr, category) {
   arr = arr
     .filter((item) => item.category === category)

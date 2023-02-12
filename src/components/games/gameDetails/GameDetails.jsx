@@ -1,14 +1,22 @@
 import React from "react";
+import { gameSystemRequirement_info } from "../../../util/GameUtil";
 import { openInNewTab } from "../../../util/WindowUtil";
 import style from "./GameDetails.module.css";
+import { SimilarGames } from "./SimilarGames";
 
 export const GameDetails = ({ game }) => {
+  const minRequirmentArr = gameSystemRequirement_info;
+
   if (game) {
     return (
       <div className={style.container}>
         <div className={style.header}>
           <div className={style.left_section}>
-            <img src={game.thumbnail} alt="test" />
+            <img
+              src={game.thumbnail}
+              alt="test"
+              placeholder="./assets/placeholder"
+            />
             <button
               className={style.play}
               onClick={() => {
@@ -49,26 +57,23 @@ export const GameDetails = ({ game }) => {
           {game.minimum_system_requirements && (
             <div>
               <ul className={style.additional_info_list}>
-                <span>
-                  <span className={style.txt_sub_headr}>OS</span>
-                  <p> {game.minimum_system_requirements.os}</p>
-                </span>
-                <span>
-                  <span className={style.txt_sub_headr}>Processor</span>
-                  <p> {game.minimum_system_requirements.processor}</p>
-                </span>
-                <span>
-                  <span className={style.txt_sub_headr}>Memory</span>
-                  <p> {game.minimum_system_requirements.memory}</p>
-                </span>
-                <span>
-                  <span className={style.txt_sub_headr}>Graphics</span>
-                  <p> {game.minimum_system_requirements.graphics}</p>
-                </span>
-                <span>
-                  <span className={style.txt_sub_headr}>Storage</span>
-                  <p> {game.minimum_system_requirements.storage}</p>
-                </span>
+                {minRequirmentArr.map((minRequirment) => {
+                  const minRequirmentLowerCase = minRequirment.toLowerCase();
+                  return (
+                    <span>
+                      <span className={style.txt_sub_headr}>
+                        {minRequirment}
+                      </span>
+                      <p>
+                        {
+                          game.minimum_system_requirements[
+                            minRequirmentLowerCase
+                          ]
+                        }
+                      </p>
+                    </span>
+                  );
+                })}
               </ul>
             </div>
           )}
@@ -88,6 +93,7 @@ export const GameDetails = ({ game }) => {
               })}
           </div>
         </div>
+        <SimilarGames category={game.genre} />
       </div>
     );
   } else {

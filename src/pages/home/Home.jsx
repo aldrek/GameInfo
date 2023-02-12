@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import styles from "./Home.module.css";
 import { AiOutlineSearch } from "react-icons/ai";
@@ -9,17 +9,21 @@ import { RxRows } from "react-icons/rx";
 import { TfiLayoutColumn3 } from "react-icons/tfi";
 import useRenderCount from "../../hooks/UseRender";
 import { Skeleton } from "../../components/skeleton/Skeleton";
+import { GamesContext } from "../../context/games.contex";
 
 export const Home = () => {
   const [gameResult, setGameResult] = useState(null);
   const [searchValue, setSearchValue] = useState("");
   const [gameListSystem, setGameListSystem] = useState("grid");
+  const { gameList, setGameList } = useContext(GamesContext);
 
   const { data, loading } = UseFetch(
     "https://free-to-play-games-database.p.rapidapi.com/api/games"
   );
 
   useEffect(() => {
+    console.log("game", gameList);
+    if (!gameList.length) setGameList(data);
     if (data) {
       setGameResult(
         data.filter((game) =>
